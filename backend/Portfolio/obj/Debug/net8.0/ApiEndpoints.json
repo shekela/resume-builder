@@ -1,0 +1,589 @@
+[
+  {
+    "ContainingType": "Portfolio.Controllers.AboutController",
+    "Method": "GetAbout",
+    "RelativePath": "api/About",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AboutController",
+    "Method": "SaveAbout",
+    "RelativePath": "api/About",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Content",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AdminController",
+    "Method": "GetAdmins",
+    "RelativePath": "api/Admin/get-admins",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AdminController",
+    "Method": "Login",
+    "RelativePath": "api/Admin/login-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "logindto",
+        "Type": "Portfolio.DTOS.AdminDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Portfolio.DTOS.ReturnAdmin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AdminController",
+    "Method": "RegisterAdmin",
+    "RelativePath": "api/Admin/register-admin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Portfolio.DTOS.ReturnAdmin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AwardsController",
+    "Method": "GetAwards",
+    "RelativePath": "api/Awards",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Portfolio.Entities.Awards, Portfolio, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AwardsController",
+    "Method": "PostAwards",
+    "RelativePath": "api/Awards",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "awards",
+        "Type": "Portfolio.Entities.Awards",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Portfolio.Entities.Awards",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AwardsController",
+    "Method": "GetAwards",
+    "RelativePath": "api/Awards/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Portfolio.Entities.Awards",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AwardsController",
+    "Method": "PutAwards",
+    "RelativePath": "api/Awards/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "awards",
+        "Type": "Portfolio.Entities.Awards",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.AwardsController",
+    "Method": "DeleteAwards",
+    "RelativePath": "api/Awards/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ContactController",
+    "Method": "GetAbout",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ContactController",
+    "Method": "SaveOrUpdateContact",
+    "RelativePath": "api/Contact",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "ContactText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Telegram",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Facebook",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Whatsapp",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Instagram",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ExperiencesController",
+    "Method": "GetAll",
+    "RelativePath": "api/Experiences",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ExperiencesController",
+    "Method": "Create",
+    "RelativePath": "api/Experiences/add-experience",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "experience",
+        "Type": "Portfolio.Entities.Experience",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ExperiencesController",
+    "Method": "Delete",
+    "RelativePath": "api/Experiences/experience/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ExperiencesController",
+    "Method": "GetById",
+    "RelativePath": "api/Experiences/get-experience/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ExperiencesController",
+    "Method": "Update",
+    "RelativePath": "api/Experiences/update-experience/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "experience",
+        "Type": "Portfolio.Entities.Experience",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ProfileController",
+    "Method": "CreateProfile",
+    "RelativePath": "api/Profile/create-profile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "GreetingText",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Photo",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "CV",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ProfileController",
+    "Method": "DeleteProfile",
+    "RelativePath": "api/Profile/delete-profile",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ProfileController",
+    "Method": "DownloadCV",
+    "RelativePath": "api/Profile/download-cv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ProfileController",
+    "Method": "GetUserProfile",
+    "RelativePath": "api/Profile/get-profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.ProfileController",
+    "Method": "UpdateProfile",
+    "RelativePath": "api/Profile/update-profile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "updatedProfile",
+        "Type": "Portfolio.Entities.Introduction",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.SkillsController",
+    "Method": "AddSkill",
+    "RelativePath": "api/Skills/add-skill",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "skill",
+        "Type": "Portfolio.Entities.Skills",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.SkillsController",
+    "Method": "DeleteSkill",
+    "RelativePath": "api/Skills/delete-skill/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.SkillsController",
+    "Method": "GetAllSkills",
+    "RelativePath": "api/Skills/get-skills",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "CreateGallery",
+    "RelativePath": "api/Works/add-gallery",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "WorkId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Picture",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "Create",
+    "RelativePath": "api/Works/add-work",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "work",
+        "Type": "Portfolio.Entities.Work",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "Delete",
+    "RelativePath": "api/Works/delete-work-photo/{workid}/{pictureid}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "workid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "pictureid",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "Delete",
+    "RelativePath": "api/Works/delete-work/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "GetAll",
+    "RelativePath": "api/Works/get-all-works",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "GetById",
+    "RelativePath": "api/Works/get-work/{slug}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "slug",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Portfolio.Controllers.WorksController",
+    "Method": "Update",
+    "RelativePath": "api/Works/update-work/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "work",
+        "Type": "Portfolio.Entities.Work",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

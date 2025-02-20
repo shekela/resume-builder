@@ -1,0 +1,77 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\1c976452-882b-45ef-a810-35b3e06cd97d_photo_2025-01-20_23-43-40.jpg",
+      "PackagePath": "staticwebassets\\uploads\\1c976452-882b-45ef-a810-35b3e06cd97d_photo_2025-01-20_23-43-40.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\210e07fe-8d34-4e1b-8b3c-3c511a1fd1a3_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\210e07fe-8d34-4e1b-8b3c-3c511a1fd1a3_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\26716720-ecda-42e2-90d8-7f54fd19a646_18230573797170914.jpg",
+      "PackagePath": "staticwebassets\\uploads\\26716720-ecda-42e2-90d8-7f54fd19a646_18230573797170914.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\4259c1f3-21cc-47fd-9c1b-6714ea4c98f8_18006442357871734.jpg",
+      "PackagePath": "staticwebassets\\uploads\\4259c1f3-21cc-47fd-9c1b-6714ea4c98f8_18006442357871734.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\49955a19-92d1-432f-8790-031a11c29d39_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\49955a19-92d1-432f-8790-031a11c29d39_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\579fb354-8294-4507-a088-3b6acef1cf56_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\579fb354-8294-4507-a088-3b6acef1cf56_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\5b42febd-369b-41f0-9e1a-9597c9c30b2f_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\5b42febd-369b-41f0-9e1a-9597c9c30b2f_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\930a6253-de4f-4bd7-8f66-e00b2c85a9c2_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\930a6253-de4f-4bd7-8f66-e00b2c85a9c2_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\a7e6df42-d651-4bd0-800d-7da9b920a77c_18230573797170914.jpg",
+      "PackagePath": "staticwebassets\\uploads\\a7e6df42-d651-4bd0-800d-7da9b920a77c_18230573797170914.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\b75bab8e-fbf8-40bd-aa80-ae53d4446898_18230573797170914.jpg",
+      "PackagePath": "staticwebassets\\uploads\\b75bab8e-fbf8-40bd-aa80-ae53d4446898_18230573797170914.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\c12fd7b1-eae4-48b1-b7a0-57ed05032edc_17969479088590488.jpg",
+      "PackagePath": "staticwebassets\\uploads\\c12fd7b1-eae4-48b1-b7a0-57ed05032edc_17969479088590488.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\dd665d50-e162-4be1-a9f1-dbc1c04806f3_IMG_20191107_203711.jpg",
+      "PackagePath": "staticwebassets\\uploads\\dd665d50-e162-4be1-a9f1-dbc1c04806f3_IMG_20191107_203711.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\ef60f134-4e2e-46bc-a571-853c30696f84_18023053717620781.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ef60f134-4e2e-46bc-a571-853c30696f84_18023053717620781.jpg"
+    },
+    {
+      "Id": "C:\\Users\\luka\\source\\repos\\Portfolio\\Portfolio\\wwwroot\\uploads\\f4a12c08-c80c-4e90-9330-6fca13217f59_17969479088590488.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f4a12c08-c80c-4e90-9330-6fca13217f59_17969479088590488.jpg"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.Portfolio.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.build.Portfolio.props",
+      "PackagePath": "build\\Portfolio.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Portfolio.props",
+      "PackagePath": "buildMultiTargeting\\Portfolio.props"
+    },
+    {
+      "Id": "obj\\Release\\net8.0\\staticwebassets\\msbuild.buildTransitive.Portfolio.props",
+      "PackagePath": "buildTransitive\\Portfolio.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
