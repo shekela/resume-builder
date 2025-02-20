@@ -1,0 +1,124 @@
+header{
+    position: fixed;
+    background-color: rgba(35, 29, 28, 0.8);
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+.content{
+    width: calc(100% - 60px);
+    max-width: calc(100% - 60px);
+    height: 60px;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.titles{
+    width: 25%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.sections{
+    width: 12%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.sections > p{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px){
+    .titles{
+        width: 45%;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        margin: 0;
+    }
+    .sections{
+        margin: 0;
+        margin-top: 5px;
+        width: 280px;
+        height: 40px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        color: white;
+
+    }
+    .sections > p{
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .titles{
+        width: 45%;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        margin: 0;
+    }
+    .sections{
+        margin: 0;
+        margin-top: 5px;
+        width: 33%;
+        height: 40px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        color: white;
+
+    }
+    .sections > p{
+        cursor: pointer;
+    }
+}
+@media only screen and (max-width: 600px){
+
+    .content{
+        display: block;
+    }
+    .titles{
+        width: 100%;
+        height: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        font-size: 14px;
+        margin: 0;
+    }
+    .sections{
+        margin: 0;
+        margin-top: 5px;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+
+    }
+    .sections > p{
+        cursor: pointer;
+    }
+}

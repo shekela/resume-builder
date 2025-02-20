@@ -1,0 +1,37 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="text-center flex-grow-1">Awards List</h2>
+      <button class="btn btn-primary shadow" (click)="addAward()">
+        <i class="fas fa-plus"></i> Add Award
+      </button>
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered shadow-sm">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-center">Role</th>
+            <th class="text-center">Place</th>
+            <th class="text-center">Year</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let award of awards">
+            <td class="align-middle">{{ award.role }}</td>
+            <td class="align-middle">{{ award.place }}</td>
+            <td class="align-middle text-center">{{ award.year }}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-warning me-2 shadow-sm" (click)="editAward(award)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="btn btn-sm btn-danger shadow-sm" (click)="deleteAwards(award.id!)">
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

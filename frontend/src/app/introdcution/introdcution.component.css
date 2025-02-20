@@ -1,0 +1,153 @@
+.intro{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h1{
+    font-size: 233px;
+    font-family: "LeagueGothic", sans-serif;
+    letter-spacing: -0.01em;
+    color: white;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 100px;
+}
+button{
+    padding: 10px 24px;
+    background-color: transparent;
+    border: 1px solid white;
+    margin-top: 15px;
+    color: white;
+    border-radius: 50px;
+    font-size: 17px;
+    margin-left: 5px;
+}
+button:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+app-profile-pic{
+    display: block;
+    margin-top: 100px;
+    border-radius: 30px;
+}
+app-greeting{
+    display: block;
+    margin-left: 10px;
+}
+hr{
+    margin-top: 30px;
+}
+
+
+@media only screen and (max-width: 1024px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+    .intro-text{
+        font-family: sans-serif;
+        font-weight: lighter;
+        color: white;
+        max-width: 80%;
+        margin-top: 50px;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 24px;
+        background-color: transparent;
+        border: 1px solid white;
+        margin-left: 10px;
+        margin-top: 15px;
+        color: white;
+        border-radius: 50px;
+        font-size: 17px;
+    }
+    button:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    img{
+        width: 355px;
+        height: 355px;
+        margin-top: 130px;
+        border-radius: 30px;
+    }
+}
+@media only screen and (max-width: 768px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+    .intro-text{
+        font-family: sans-serif;
+        font-weight: lighter;
+        color: white;
+        max-width: 80%;
+        margin-top: 50px;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 24px;
+        background-color: transparent;
+        border: 1px solid white;
+        margin-left: 10px;
+        margin-top: 15px;
+        color: white;
+        border-radius: 50px;
+        font-size: 17px;
+    }
+    button:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    img{
+        width: 300px;
+        height: 400px;
+        margin-top: 130px;
+        border-radius: 30px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .intro{
+        width: 100%;
+        display: block;
+    }
+    h1{
+        font-size: 122px;
+    }
+    .intro-text{
+        max-width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+        margin-left: 0%;
+        margin-top: 70px;
+    }
+}

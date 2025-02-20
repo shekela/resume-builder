@@ -1,0 +1,28 @@
+<div class="file-upload-wrapper">
+    <input
+      id="product-image"
+      type="file"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+      class="file-upload-input"
+    />
+    <label for="product-image" class="file-upload-label">
+      <span class="upload-icon">📁</span>
+      Upload Background Image
+    </label>
+  
+    <div class="file-upload-preview" *ngIf="filePreview">
+      <img [src]="filePreview" alt="Selected Image" class="preview-image" />
+    </div>
+  
+    <span class="file-upload-name" *ngIf="fileName">
+      {{ fileName }}
+    </span>
+  
+    <button class="upload-button" (click)="uploadFile()" [disabled]="isUploading || !selectedFile">
+      {{ isUploading ? 'Uploading...' : 'Upload' }}
+    </button>
+  
+    <p class="upload-success" *ngIf="uploadSuccess">✅ Image uploaded successfully!</p>
+  </div>
+  

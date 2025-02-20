@@ -1,0 +1,52 @@
+.section-into{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+h2{
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: lighter;
+    letter-spacing: -.04em;
+    line-height: 1em;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.intro-text{
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: white;
+    max-width: 35%;
+    margin-top: 50px;
+    font-size: 18px;
+}
+hr{
+    margin-top: 60px;
+}
+
+@media only screen and (max-width: 1024px){
+    .intro-text{
+        max-width: 50%;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .intro-text{
+        max-width: 70%;
+        font-size: 15px;
+    }
+}
+@media only screen and (max-width: 600px){
+    .intro-text{
+        max-width: 100%;
+        font-size: 15px;
+    }
+}

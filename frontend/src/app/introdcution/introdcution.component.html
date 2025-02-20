@@ -1,0 +1,11 @@
+<div class="intro" *ngIf="introduction">
+    <div>
+        <app-fullname [fullname]="introduction.name"/>
+        <app-greeting [greeting]="safeGreetingText"/>
+        <button (click)="onDownloadClick()">Download my CV</button>
+    </div>
+    <div>
+        <app-profile-pic [image]="introduction.photo" />
+    </div>
+</div>
+<hr>

@@ -1,0 +1,29 @@
+<div class="file-upload-wrapper">
+    <input
+      id="product-image"
+      type="file"
+      (change)="onFileSelected($event)"
+      accept=".pdf,.doc,.docx"
+      class="file-upload-input"
+    />
+    <label for="product-image" class="file-upload-label">
+      <span class="upload-icon">📁</span>
+      Upload Your Resume
+    </label>
+
+    <button class="upload-button" (click)="uploadFile()" [disabled]="isUploading || !selectedFile">
+        {{ isUploading ? 'Uploading...' : 'Upload' }}
+    </button>
+
+    <span class="file-upload-name" *ngIf="fileName">
+        {{ fileName }}
+    </span>
+    
+    <p class="upload-success" *ngIf="uploadSuccess">✅ Image uploaded successfully!</p>
+  
+    <div class="file-upload-preview" *ngIf="filePreviewView">
+        <iframe [src]="filePreviewView" width="650px" height="850px"></iframe>
+    </div>
+  
+  </div>
+  

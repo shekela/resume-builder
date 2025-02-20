@@ -1,0 +1,65 @@
+img{
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+}
+@media only screen and (max-width: 1024px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+    .intro-text{
+        font-family: sans-serif;
+        font-weight: lighter;
+        color: white;
+        max-width: 80%;
+        margin-top: 50px;
+        margin-left: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 24px;
+        background-color: transparent;
+        border: 1px solid white;
+        margin-left: 10px;
+        margin-top: 15px;
+        color: white;
+        border-radius: 50px;
+        font-size: 17px;
+    }
+    button:hover{
+        background-color: white;
+        color: black;
+        cursor: pointer;
+    }
+    img{
+        width: 355px;
+        height: 355px;
+        margin-top: 130px;
+        border-radius: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    img{
+        width: 300px;
+        height: 400px;
+        margin-top: 50px;
+        border-radius: 30px;
+    }
+}
+@media only screen and (max-width: 600px){
+    img{
+        width: 100%;
+        height: auto;
+        margin-left: 0%;
+        margin-top: 70px;
+    }
+}

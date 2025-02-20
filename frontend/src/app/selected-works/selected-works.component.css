@@ -1,0 +1,118 @@
+h2{
+    font-family: "Inter", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: lighter;
+    letter-spacing: -.04em;
+    line-height: 1em;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.display-works {
+    display: flex;          /* Enable Flexbox */
+    flex-wrap: wrap;        /* Allow items to wrap to next line */
+    gap: 30px;              /* Space between items */
+    width: 100%;            /* Ensure container takes full width */
+    justify-content: space-between; /* Distribute the items evenly */
+}
+
+.selected-work {
+    flex: 0 0 calc((100% - 60px) / 3); /* Each item takes 1/3 of the space with gaps considered */
+    height: 500px;  /* Fixed height */
+    margin-top: 30px;  /* Top margin for spacing */
+}
+hr{
+    margin-top: 30px;
+}
+.progress-load{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.progress-container {
+    position: relative;
+    height: 1px;
+    background-color: grey;
+    border-radius: 3px;
+    margin: 10px auto;
+    max-width: 250px;
+    margin-top: 100px;
+    font-family: Inter, sans-serif;
+  }
+  
+  /* Progress bar itself */
+  .progress-bar {
+    height: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Progress text */
+  .progress-text {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-family: Inter, sans-serif;
+    color: white;
+  }
+  
+  button{
+    cursor: pointer;
+    padding: 10px 26px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 30px;
+    margin-left: 0px;
+    color: white;
+    margin-left: 27.5%;
+  }
+  button:hover{
+    background-color: white;
+    color: black;
+  }
+
+  @media only screen and (max-width: 1024px){
+    h2{
+      margin-top: 30px;
+      overflow: hidden;
+    }
+    .selected-work {
+      flex: 0 0 calc((100%) / 2.1); /* Each item takes 1/3 of the space with gaps considered */
+      height: 400px;  /* Fixed height */
+      margin-top: 0px;  /* Top margin for spacing */
+    }
+    .progress-container{
+      margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    h2{
+      margin-top: 30px;
+      overflow: hidden;
+    }
+    .selected-work {
+      flex: 0 0 calc((100%) / 2.1); /* Each item takes 1/3 of the space with gaps considered */
+      height: 400px;  /* Fixed height */
+      margin-top: 0px;  /* Top margin for spacing */
+    }
+    .progress-container{
+      margin-top: 30px;
+    }
+  }
+  @media only screen and (max-width: 600px){
+    h2{
+      margin-top: 30px;
+      overflow: hidden;
+    }
+    .selected-work {
+      flex: 0 0 calc((100%) / 1); /* Each item takes 1/3 of the space with gaps considered */
+      height: 400px;  /* Fixed height */
+      margin-top: 0px;  /* Top margin for spacing */
+    }
+    .progress-container{
+      margin-top: 30px;
+    }
+  }

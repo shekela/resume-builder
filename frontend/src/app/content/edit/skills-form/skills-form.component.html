@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Add Skill</h2>
+<form [formGroup]="skillForm" (ngSubmit)="save()">
+  <mat-form-field class="full-width">
+    <mat-label>Skill</mat-label>
+    <input matInput placeholder="Skill Name" formControlName="skill" required />
+  </mat-form-field>
+
+  <button mat-button color="primary" type="submit" [disabled]="skillForm.invalid">Save</button>
+  <button mat-button color="warn" (click)="close()">Cancel</button>
+</form>

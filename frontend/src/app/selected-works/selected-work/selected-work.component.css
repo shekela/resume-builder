@@ -1,0 +1,102 @@
+.image-container {
+    width: 100%;          /* Full width of the container */
+    height: 100%;         /* Full height of the container */
+    overflow: hidden;     /* Crop any overflow */
+    display: flex;        /* Center content */
+    flex-direction: column;
+    align-items: center;  /* Center horizontally */
+    justify-content: center;  /* Center vertically */
+    margin-top: 30px;     /* Top margin for spacing */
+    position: relative;   /* Position for overlay */
+}
+.image-box{
+    width: 100%;
+    height: calc(90% - 10px);
+    overflow: hidden;
+}
+
+.image-container img {
+    border-radius: 30px;  /* Round corners for the images */
+    width: 100%;          /* Scale image to fit container */
+    height: 100%;         /* Scale image to fit container */
+    object-fit: cover;    /* Maintain aspect ratio while filling container */
+}
+
+.project-info {
+    height: 10%;
+    width: 95%;           /* Text container width */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;        /* Align text content */
+    align-items: center;
+    justify-content: space-between;  /* Space between text elements */
+    margin-top: 10px;     /* Top margin for spacing */
+}
+
+.project-info p {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: lighter;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.image-container img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(90% - 10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    opacity: 0;                     /* Initially hidden */
+    transition: opacity 0.3s ease;  /* Smooth fade-in effect */
+    border-radius: 30px;            /* Match the image border-radius */
+}
+
+.image-box:hover .hover-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.see-project-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dlt-project-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: rgb(223, 0, 0, 0.8);
+    border: none;
+    border-radius: 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.see-project-btn:hover {
+    background: white;
+    color: black;
+}
+.underline:hover{
+    text-decoration: underline;
+    text-decoration-color: white;
+    text-underline-offset: 10px;
+    cursor: pointer;
+}

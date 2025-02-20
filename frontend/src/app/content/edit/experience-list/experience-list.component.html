@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="text-center flex-grow-1">Experience List</h2>
+      <button class="btn btn-primary shadow" (click)="addExperience()">
+        <i class="fas fa-plus"></i> Add Experience
+      </button>
+    </div>
+  
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered shadow-sm">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-center">Role</th>
+            <th class="text-center">Place</th>
+            <th class="text-center">Start Year</th>
+            <th class="text-center">End Year</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let experience of experiences">
+            <td class="align-middle">{{ experience.role }}</td>
+            <td class="align-middle">{{ experience.place }}</td>
+            <td class="align-middle text-center">{{ experience.period.startYear }}</td>
+            <td class="align-middle text-center">
+              <span class="badge bg-success" *ngIf="experience.period.endYear === 'Present'">
+                {{ experience.period.endYear }}
+              </span>
+              <span *ngIf="experience.period.endYear !== 'Present'">
+                {{ experience.period.endYear }}
+              </span>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-warning me-2 shadow-sm" (click)="editExperience(experience)">
+                <i class="fas fa-edit"></i> Edit
+              </button>
+              <button class="btn btn-sm btn-danger shadow-sm" (click)="deleteExperience(experience.id!)">
+                <i class="fas fa-trash-alt"></i> Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,0 +1,112 @@
+<main>
+    <div class="form-container">
+        <h2>{{ task }} Work</h2>
+        
+        <form [formGroup]="workForm" (ngSubmit)="submitForm()">
+          <div class="form-group">
+            <label>Name:</label>
+            <input type="text" formControlName="name" placeholder="Enter name">
+            <small *ngIf="workForm.get('name')?.invalid && workForm.get('name')?.touched">Name is required.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Year:</label>
+            <input type="text" formControlName="year" placeholder="Enter year (e.g., 2024)">
+            <small *ngIf="workForm.get('year')?.invalid && workForm.get('year')?.touched">Enter a valid 4-digit year.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Role:</label>
+            <input type="text" formControlName="role" placeholder="Enter role">
+            <small *ngIf="workForm.get('role')?.invalid && workForm.get('role')?.touched">Role is required.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Location:</label>
+            <input type="text" formControlName="location" placeholder="Enter location">
+            <small *ngIf="workForm.get('location')?.invalid && workForm.get('location')?.touched">Location is required.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Type:</label>
+            <input type="text" formControlName="type" placeholder="Enter type">
+            <small *ngIf="workForm.get('type')?.invalid && workForm.get('type')?.touched">Type is required.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Image URL:</label>
+            <input type="text" formControlName="imageUrl" placeholder="Enter image URL">
+            <small *ngIf="workForm.get('imageUrl')?.invalid && workForm.get('imageUrl')?.touched">Image URL is required.</small>
+          </div>
+      
+          <div class="form-group">
+            <label>Description:</label>
+            <textarea formControlName="description" rows="4" placeholder="Enter description"></textarea>
+            <small *ngIf="workForm.get('description')?.invalid && workForm.get('description')?.touched">At least 10 characters required.</small>
+          </div>
+      
+          <button type="submit" [disabled]="isSubmitting">Submit</button>
+          
+          <p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+          <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+        </form>
+      </div>
+      
+    <div class="gallery" *ngIf="update">
+        <div class="file-upload-wrapper">
+            <input
+              id="product-image"
+              type="file"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+              class="file-upload-input"
+            />
+            <label for="product-image" class="file-upload-label">
+              <span class="upload-icon">📁</span>
+              Upload Background Image
+            </label>
+          
+            <div class="file-upload-preview" *ngIf="filePreview">
+              <img [src]="filePreview" alt="Selected Image" class="preview-image" />
+            </div>
+          
+            <span class="file-upload-name" *ngIf="fileName">
+              {{ fileName }}
+            </span>
+          
+            <button class="upload-button" (click)="uploadFile()" [disabled]="isUploading || !selectedFile">
+              {{ isUploading ? 'Uploading...' : 'Upload' }}
+            </button>
+          
+            <p class="upload-success" *ngIf="uploadSuccess">✅ Image uploaded successfully!</p>
+          </div>
+          <ng-container *ngIf="Gallery && Gallery.length > 1">
+            <section>
+                <div class="image-container" *ngFor="let picture of displayedPictures; let i = index"> 
+                    <img [src]="picture.picture"/>
+                    <p class="delete-text" (click)="deleteImage(i, picture)">Delete image</p>
+                </div>
+            </section>
+        </ng-container>
+        
+        <ng-container *ngIf="Gallery && Gallery.length === 1">
+            <div class="image-containe-single" *ngFor="let picture of displayedPictures; let i = index"> 
+                <img [src]="picture.picture"/>
+                <p class="delete-text" (click)="deleteImage(i, picture)">Delete image</p>
+            </div>
+        </ng-container>
+        
+        <div *ngIf="displayedPictures.length > 0" class="progress-load">
+            <div class="progress-container">
+              <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+            </div>
+            <div class="progress-text">
+                Loaded {{ loadedCount }} works out of {{ totalPictures }}
+            </div>
+            <button *ngIf="loadedCount < totalPictures" class="button" (click)="loadMore()">
+              Load more
+            </button>
+    </div>
+    </div>
+    
+</main>

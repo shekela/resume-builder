@@ -1,0 +1,43 @@
+h1{
+    font-size: 233px;
+    font-family: "LeagueGothic", sans-serif;
+    letter-spacing: -0.01em;
+    color: white;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 1024px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+}
+@media only screen and (max-width: 768px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        text-transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    h1{
+        font-size: 122px;
+    }
+}

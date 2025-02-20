@@ -1,0 +1,16 @@
+<h2>SELECTED WORKS</h2>
+<div class="display-works">
+      <app-selected-work *ngFor="let work of displayedWorks; let i = index" [work]="work" [index]="i + 1" class="selected-work"/>
+</div>
+<div *ngIf="displayedWorks.length > 0" class="progress-load">
+  <div class="progress-container">
+    <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+  </div>
+  <div class="progress-text">
+      Loaded {{ loadedCount }} works out of {{ totalworks }}
+  </div>
+  <button *ngIf="loadedCount < totalworks" (click)="loadMore()">
+    Load more
+  </button>
+</div>
+<hr>

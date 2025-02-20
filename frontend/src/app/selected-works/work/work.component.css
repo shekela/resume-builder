@@ -1,0 +1,168 @@
+#gallery{
+    display: block;
+    margin-top: 50px;
+}
+.main{
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    overflow: hidden;
+}
+h1{
+    margin-left: 30px;
+    font-size: 173px;
+    font-family: "LeagueGothic", sans-serif;
+    letter-spacing: -0.01em;
+    color: white;
+    line-height: 1em;
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 105px;
+}
+.intro{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    margin-top: 150px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.introduction-part{
+    max-width: 35%;
+    width: 35%;
+}
+.intro-text{
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: white;
+    width: 100%;
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.intro-text p {
+    max-width: 80%;
+}
+.work-info{
+    max-width: 60%;
+    width: 60%;
+}
+h2{
+    font-family: sans-serif;
+    font-weight: lighter;
+    text-transform: uppercase;
+    margin: 0px;
+    margin-top: 0px;
+}
+.work-info{
+    width: 100%;
+    display: block;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+    font-size: 21px;
+    font-family: sans-serif;
+    font-weight: lighter;
+    margin: 0;
+}
+.info p{
+    margin-top: 5px;
+}
+hr{
+    height: 0.5px; /* Adjust the thickness */
+    background-color: white; /* Set the line color */
+    border: none; /* Remove the default border */
+}
+
+
+
+@media only screen and (max-width: 1024px){
+    h1{
+        font-size: 100px;
+        font-family: "LeagueGothic", sans-serif;
+        letter-spacing: -0.01em;
+        color: white;
+        line-height: 1em;
+        transform: uppercase;
+        margin-bottom: 0;
+        margin-top: 100px;
+        margin-left: 0;
+    }
+    .intro{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+        margin-top: 50px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .introduction-part{
+        max-width: 55%;
+        width: 55%;
+        height: 100%;
+        flex: 1;
+    }
+    .intro-text{
+        font-family: sans-serif;
+        font-weight: lighter;
+        color: white;
+        width: 100%;
+        height: 100%;
+        margin-top: 0px;
+        margin-left: 0px;
+        font-size: 16px;
+    }
+    h2{
+        margin: 0px;
+    }
+}
+@media only screen and (max-width: 768px){
+    .intro{
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+    }
+    h1{
+        font-size: 82px;
+    }
+    .intro-text{
+        max-width: 100%;
+        margin-left: 0px;
+    }
+    .introduction-part{
+        max-width: 100%;
+        width: 100%;
+    }
+    .work-info{
+        max-width: 100%;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px){
+    .intro{
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+    }
+    h1{
+        font-size: 82px;
+    }
+    .intro-text{
+        max-width: 100%;
+        margin-left: 0px;
+    }
+    .introduction-part{
+        max-width: 100%;
+        width: 100%;
+    }
+    .work-info{
+        max-width: 100%;
+        width: 100%;
+    }
+}

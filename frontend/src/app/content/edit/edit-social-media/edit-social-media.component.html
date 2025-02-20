@@ -1,0 +1,8 @@
+<div class="form-container">
+    <form (submit)="submitForm()">
+      <p>Update <b>{{social}}</b></p>
+      <input type="text" [(ngModel)]="inputValue" name="newValue" required />
+      <button type="submit" >Submit</button>
+    </form>
+</div>
+  

@@ -1,0 +1,15 @@
+<div class="services">
+    <div class="section-title">
+      <p class="experience-title">Experience</p>
+    </div>
+    <div class="experience-list">
+        <div *ngFor="let experience of experiences; let i = index" class="experience-row">
+            <div class="experience">
+              <div class="experience-item" id="role"><p>{{ experience.role }}</p></div>
+              <div class="experience-item" id="place"><p>{{ experience.place }}</p></div>
+              <div class="experience-item" id="period"><p>{{ formatPeriod(experience.period) }}</p></div>
+            </div>
+            <hr *ngIf="i !== experiences.length - 1">
+        </div>
+    </div>
+</div>

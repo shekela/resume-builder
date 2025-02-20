@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>{{ data.award ? 'Edit Award' : 'Add Award' }}</h2>
+<form [formGroup]="awardForm" (ngSubmit)="save()">
+  <mat-form-field class="full-width">
+    <mat-label>Role</mat-label>
+    <input matInput placeholder="Role" formControlName="role" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Place</mat-label>
+    <input matInput placeholder="Place" formControlName="place" required />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Year</mat-label>
+    <input matInput placeholder="Year" formControlName="year" required />
+  </mat-form-field>
+
+  <button mat-button color="primary" type="submit" [disabled]="awardForm.invalid">Save</button>
+  <button mat-button color="warn" (click)="close()">Cancel</button>
+</form>

@@ -1,0 +1,83 @@
+<div class="section-into">
+    <div>
+        <h2>Contact</h2>
+        <app-contact-text [contactText]="safeContactText"/>
+    </div>
+</div>
+
+<div class="contact-form-container">
+    <form [formGroup]="contactForm">
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          [ngClass]="{'invalid': email.invalid && email.touched}"
+        />
+        <div *ngIf="email.invalid && email.touched" class="error">
+          Please enter a valid email.
+        </div>
+      </div>
+  
+      <div class="form-group" >
+        <textarea
+          id="message"
+          formControlName="message"
+          rows="5"
+          placeholder="Write your message"
+          [ngClass]="{'invalid': message.invalid && message.touched}"
+        ></textarea>
+        <div *ngIf="message.invalid && message.touched" class="error">
+          Message cannot be empty.
+        </div>
+      </div>
+  
+      <div class="submit-box" (click)="onSubmit()">
+        <p *ngIf="!submitted">SEND MESSAGE</p>
+        <p *ngIf="submitted" id="colorSent">MESSAGE SENT</p> <!-- Green text -->
+        <button [disabled]="contactForm.invalid" #submitButton>
+          <img
+            src="./assets/send.png"
+            *ngIf="!submitted"
+            #sendImage
+            class="send-image"
+          />
+          <img
+            src="./assets/send-green.png"
+            *ngIf="submitted"
+            #sentImage
+            class="sent-image"
+          />
+        </button>
+      </div>
+      
+    </form>
+  </div>
+
+  <div class="social-medias">
+    <span>
+      <a [href]="contact.instagram" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </span>
+    
+    <span>
+      <a [href]="contact.facebook" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </span>
+    
+    <span>
+      <a [href]="contact.whatsapp" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </span>
+    
+    <span>
+      <a [href]="contact.telegram" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram"></i>
+      </a>
+    </span>
+    
+  </div>

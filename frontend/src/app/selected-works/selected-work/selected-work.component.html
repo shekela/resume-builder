@@ -1,0 +1,24 @@
+<div class="image-container">
+    <div class="image-box">
+        <img [src]="work.imageUrl" alt="Image 1" />
+        <div class="hover-overlay" *ngIf="!delete">
+            <button class="see-project-btn" (click)="navigateToWork(work)">See Project</button>
+        </div>
+        <div class="hover-overlay" *ngIf="delete">
+            <button class="dlt-project-btn" (click)="deleteWork(work.id)">Delete Project</button>
+        </div>
+    </div>
+    <ng-container *ngIf="delete">
+        <div class="project-info underline" (click)="navigateToWork(work)">
+            <p>{{work.name}}</p>
+            <p>{{ index | number: '2.0' }}</p>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!delete">
+        <div class="project-info">
+            <p>{{work.name}}</p>
+            <p>{{ index | number: '2.0' }}</p>
+        </div>
+    </ng-container>
+    
+</div>

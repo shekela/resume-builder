@@ -1,0 +1,23 @@
+<ng-container *ngIf="pictures && pictures.length > 1">
+    <section>
+        <div class="image-container" *ngFor="let picture of displayedPictures"> 
+            <img [src]="picture"/>
+        </div>
+    </section>
+</ng-container>
+<ng-container *ngIf="pictures && pictures.length === 1">
+    <div class="image-containe-single" *ngFor="let picture of displayedPictures"> 
+        <img [src]="picture"/>
+    </div>
+</ng-container>
+<div *ngIf="displayedPictures.length > 0" class="progress-load">
+    <div class="progress-container">
+      <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+    </div>
+    <div class="progress-text">
+        Loaded {{ loadedCount }} works out of {{ totalPictures }}
+    </div>
+    <button *ngIf="loadedCount < totalPictures" (click)="loadMore()">
+      Load more
+    </button>
+</div>

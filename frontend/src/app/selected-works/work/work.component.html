@@ -1,0 +1,45 @@
+<app-header/>
+<div class="main">
+    <h1>{{work?.name}}</h1>
+    <div class="intro">
+        <div class="introduction-part">
+            <div class="intro-text">
+                <h2>Description</h2>
+                <p>{{work?.description}}</p>
+            </div>
+        </div>
+        <div class="work-info">
+            <div>
+                <div class="info">
+                    <div class="experience-item" id="role"><p>My role</p></div>
+                    <div class="experience-item" id="place"><p>{{work?.role}}</p></div>
+                </div>
+                <hr>
+            </div>
+            <div>
+                <div class="info">
+                    <div class="experience-item" id="role"><p>Year</p></div>
+                    <div class="experience-item" id="place"><p>{{work?.year}}</p></div>
+                </div>
+                <hr>
+            </div>
+            <div>
+                <div class="info">
+                    <div class="experience-item" id="role"><p>Type</p></div>
+                    <div class="experience-item" id="place"><p>{{work?.type}}
+                    </p></div>
+                </div>
+                <hr>
+            </div>
+            <div>
+                <div class="info">
+                    <div class="experience-item" id="role"><p>Location</p></div>
+                    <div class="experience-item" id="place"><p>{{work?.location}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-gallery [pictures]="workGallery" id="gallery"/>
+    <hr>
+    <app-contact/>
+</div>

@@ -1,0 +1,17 @@
+<div class="services">
+    <div class="section-title" *ngIf="awards.length > 0">
+      <p class="awards-title">Awards & Certificates</p>
+    </div>
+    <div class="awards-list">
+        <div *ngFor="let award of awards; let i = index" class="awards-row">
+            <div class="awards">
+              <div class="awards-item"><p id="role">{{ award.role }}</p></div>
+              <div class="awards-item"><p id="place">{{ award.place }}</p></div>
+              <div class="awards-item"><p id="period">{{ award.year }}</p></div>
+            </div>
+            
+            <!-- Only display <hr> if it's not the last element -->
+            <hr *ngIf="i !== awards.length - 1">
+          </div>
+    </div>
+</div>

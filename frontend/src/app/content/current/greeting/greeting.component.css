@@ -1,0 +1,12 @@
+.intro-text {
+    all: unset; /* Reset all inherited styles */
+    display: block; /* Ensure proper rendering of block elements */
+}
+  
+.intro-text span {
+    display: inline; /* Ensure <span> behaves as inline */
+    all: unset; /* Reset inherited styles */
+    color: inherit; /* Ensure color respects inline styles */
+    background-color: inherit; /* Ensure background respects inline styles */
+}
+  

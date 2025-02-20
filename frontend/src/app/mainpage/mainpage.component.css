@@ -1,0 +1,12 @@
+main{
+    width: calc(100% - 60px);
+    margin-left: 30px;
+}
+
+@media only screen and (max-width: 600px)
+{
+    main{
+        width: calc(100% - 30px);
+        margin-left: 5px;
+    }
+}
