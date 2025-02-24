@@ -8,6 +8,7 @@ header{
     top: 0;
     font-family: sans-serif;
     overflow: hidden;
+    z-index: 999999;
 }
 .content{
     width: calc(100% - 60px);
@@ -106,6 +107,7 @@ header{
         color: white;
         font-size: 14px;
         margin: 0;
+        margin-top: 10px;
     }
     .sections{
         margin: 0;
