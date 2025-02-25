@@ -24,6 +24,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/.web.config",
+              "src/routes.json", 
               {
                 "glob": "**/*",
                 "input": "src/assets/tinymce",
