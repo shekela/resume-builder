@@ -13,4 +13,11 @@ export class HeaderComponent {
   constructor(private datePipe: DatePipe) {
     this.currentYear = this.datePipe.transform(new Date(), 'yyyy') || '';
   }
+  
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' }); // ✅ Smooth scrolling effect
+    }
+  }
 }

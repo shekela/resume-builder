@@ -5,9 +5,9 @@
             <p>PORTFOLIO {{currentYear}}</p>
         </div>
         <div class="sections">
-            <p>WORKS</p>
-            <p>ABOUT</p>
-            <p>CONTACT</p>
+            <p (click)="scrollToSection('works')">WORKS</p>
+            <p (click)="scrollToSection('about')">ABOUT</p>
+            <p (click)="scrollToSection('contact')">CONTACT</p>
         </div>
     </div>
 </header>
