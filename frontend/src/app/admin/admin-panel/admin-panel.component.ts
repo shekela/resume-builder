@@ -32,6 +32,8 @@ export class AdminPanelComponent implements OnInit{
               private photoURLFormatter: PhotoUrlFormatterService,){}
 
   isEditorActive: boolean = false;
+  isSidebarOpen: boolean = false;
+  isSectionChosen: boolean = false;
 
   selectedWorks!: Work[];
   introduction!: Introduction;
@@ -85,6 +87,8 @@ export class AdminPanelComponent implements OnInit{
     if (section.parentSection === 'selectedWorks') {
       this.displayedWork = this.selectedWorks.find(work => work.id === section.id) || {} as Work;
     }
+    this.toggleSidebar();
+    this.isSectionChosen = true;
   }
 
   isActiveSection(sectionName: string, parentSection: string, id?: number): boolean {
@@ -102,8 +106,11 @@ export class AdminPanelComponent implements OnInit{
             this.activeChildSection?.parentSection === parentSection
         );
     }
-}
+  }
 
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
 
 
   onWorkAdded(updatedWorks: Work[]): void {
@@ -195,6 +202,31 @@ export class AdminPanelComponent implements OnInit{
       }
     });
 
+
+    this.requestsService.getAbout().subscribe();
+    this.requestsService.aboutText$.subscribe(text => {
+        if(text) {
+          this.safeAboutText = this.sanitizer.bypassSecurityTrustHtml(
+            text.content
+              ? text.content
+              : '<p style="color: white;font-family: sans-serif;">Your default About text. Explain your motive and aim. Tell shortly about yourself.</p>'
+          );
+          this.cdr.detectChanges();
+        }
+      });
+      
+        
+    this.requestsService.getContact().subscribe();
+    this.requestsService.contact$.subscribe(contact => {
+      if(contact){
+        this.safeContactText = this.sanitizer.bypassSecurityTrustHtml(
+          contact.contactText 
+            ? contact.contactText 
+            : '<p style="color: white;font-family: sans-serif;">Your default contact text. Ask you clients how to contact you.</p>'
+        );
+        console.log("Contact data:" + contact);
+      }
+    });
   }
 
   

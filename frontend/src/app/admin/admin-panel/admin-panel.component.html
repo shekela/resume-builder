@@ -1,6 +1,19 @@
+<header class="menu-open-mobile" *ngIf="!isSidebarOpen">
+  <div class="header-mobile-construct">
+    <div>
+      <i style="margin-top:10px;color:white;text-align: center;" class="fa fa-bars" (click)="toggleSidebar()"></i>
+    </div>
+    <button class="edit-btn" *ngIf="!isEditorActive && isSectionChosen" (click)="toggleEditor()" style="color: white;">Edit Content</button>
+    <button class="back-btn" *ngIf="isEditorActive && !['add-work', 'telegram', 'instagram', 'facebook', 'whatsapp'].includes(activeChildSection.section)" (click)="toggleEditor()" style="color:white">Back to View</button>
+    <div>
+      <p style="margin-top:10px;color:white;text-align: center;">ADMIN PANEL</p>
+    </div>
+  </div>
+</header>
 <div class="dashboard-container">
-  <div class="sidebar">
-    <h2>ADMIN PANEL</h2>
+  <div class="sidebar" [class.open]="isSidebarOpen">
+    <p class="close-btn" (click)="toggleSidebar()">X</p>
+    <h2 *ngIf="!isSidebarOpen">ADMIN PANEL</h2>
     <ul>
         <li>
             <span class="toggle-icon" (click)="toggleDropdown('introduction')">{{ getToggleIcon('introduction') }} Introduction </span> 

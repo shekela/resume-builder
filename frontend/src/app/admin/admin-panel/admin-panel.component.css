@@ -4,12 +4,14 @@
     min-height: 100vh;
     font-family: sans-serif;
 }
+
 .main-space{
     margin-left: 14%;
     width: 86%;
     display: block;
     background-color: #231D1C;
 }
+
 .sidebar {
     width: 14%;
     background: black;
@@ -176,8 +178,6 @@ h3{
     transition: width 0.3s ease-in-out;
   }
   
-
-  
   button{
     cursor: pointer;
     padding: 0;
@@ -187,4 +187,87 @@ h3{
     margin-left: 0px;
     color: #3D78E6;
     margin-left: 70px;
+  }
+
+  .menu-open-mobile{
+    display: none;
+  }
+
+  .close-btn{
+    display: none;
+  }
+  @media  only screen and (max-width: 600px) {
+    /* Admin Dashboard Styles */
+    .dashboard-container {
+        display: flex;
+        min-height: 70vh;
+        height: fit-content;
+        font-family: sans-serif;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .menu-open-mobile {
+        position: fixed;
+        width: 100%;
+        height: 80px;
+        background-color: black;
+        z-index: 1000; /* ✅ Ensure it's above other elements */
+        display: block;
+    }
+
+    .header-mobile-construct{
+        width: 80%;
+        height: 80px;
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .sidebar.open {
+        left: 0; /* ✅ Sidebar appears on fullscreen */
+        display: block;
+        width: 100%;
+        z-index: 9999;
+    }
+      
+    .sidebar .close-btn {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+      
+    .main-space{
+        margin-top: 80px;
+        margin-left: 0%;
+        width: 100%;
+    }
+    .current-section{
+        height: fit-content;
+        min-height: 70vh;
+    }
+    .edit-section{
+        height: fit-content;
+        min-height: 70vh;
+    }
+    .content-edit-header{
+        display: none;
+    }
+    .current-content-holder{
+        margin-left: 0px;
+        margin-top: 0px;
+    }
+    .selected-work{
+        display: block;
+        margin-left: 7.5px;
+    }
+    
   }
