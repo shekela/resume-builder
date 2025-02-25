@@ -65,7 +65,7 @@
                  <app-profile-pic *ngIf="activeChildSection.section == 'photo' && activeChildSection.parentSection == 'introduction'" [image]="introduction.photo"/>
                  <app-resume *ngIf="activeChildSection.section == 'cv' && activeChildSection.parentSection == 'introduction'"/>
                  <ng-container *ngIf="activeChildSection.parentSection === 'selectedWorks' && activeChildSection.section != 'add-work'">
-                  <app-selected-work [work]="displayedWork" [delete]="true" class="selected-work"></app-selected-work>
+                  <app-selected-work [work]="displayedWork" [delete]="true" class="selected-work" (deleteWorkOutput)="deleteWork(displayedWork.id)"></app-selected-work>
                  </ng-container>
                  <app-about-text *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'text'" [aboutText]="safeAboutText"/>
                  <app-skills *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'skills'"/>
@@ -97,107 +97,5 @@
          </div>
     </div> 
 </div> 
-
-
-<!-- <div class="dashboard-container">
-  <div class="sidebar">
-    <h2>ADMIN PANEL</h2>
-    <ul>
-        <li>
-            <span class="toggle-icon" (click)="toggleDropdown('introduction')">{{ getToggleIcon('introduction') }} Introduction </span> 
-            <ul *ngIf="openedParentSections.includes('introduction')" class="dropdown">
-                <li (click)="selectSection({section: 'fullname', parentSection: 'introduction'})" [class.active]="isActiveSection('fullname', 'introduction')">Fullname</li>
-                <li (click)="selectSection({ section: 'greeting', parentSection: 'introduction' })" [class.active]="isActiveSection('greeting', 'introduction')">Greeting</li>
-                <li (click)="selectSection({ section: 'photo', parentSection: 'introduction' })"[class.active]="isActiveSection('photo', 'introduction')"> Photo </li>
-                <li (click)="selectSection({ section: 'cv', parentSection: 'introduction' })" [class.active]="isActiveSection('cv', 'introduction')">CV</li>
-            </ul>
-        </li>
-        <li>
-            <span class="toggle-icon" (click)="toggleDropdown('selectedWorks')">{{ getToggleIcon('selectedWorks') }} Selected Works</span>
-            <ul *ngIf="openedParentSections.includes('selectedWorks')" class="dropdown">
-                <li (click)="selectSection({section: work.name, parentSection: 'selectedWorks', id: work?.id})" [class.active]="isActiveSection(work.name, 'selectedWorks', work.id)" *ngFor="let work of displayedWorks">{{ work.name }}</li>
-                <div *ngIf="displayedWorks.length > 0" class="progress-load">
-                  <div class="progress-container">
-                    <div class="progress-bar" [style.width.%]="progressPercentage"></div>
-                  </div>
-                  <button *ngIf="loadedCount < totalworks" (click)="loadMore()">
-                    Load more
-                  </button>
-                </div>
-                <li (click)="selectSection({ section: 'add-work', parentSection: 'selectedWorks' })" (click)="toggleEditor()" [class.active]="isActiveSection('add-work', 'selectedWorks')" style="margin-top: 25px;">ADD WORK</li>
-            </ul>
-        </li>
-        <li>
-            <span class="toggle-icon" (click)="toggleDropdown('about')">{{ getToggleIcon('about') }} About</span>
-            <ul *ngIf="openedParentSections.includes('about')" class="dropdown">
-                <li (click)="selectSection({section: 'text', parentSection: 'about'})" [class.active]="isActiveSection('text', 'about')">Text</li>
-                <li (click)="selectSection({section: 'skills', parentSection: 'about'})" [class.active]="isActiveSection('skills', 'about')">Skills</li>
-                <li (click)="selectSection({section: 'experience', parentSection: 'about'})" [class.active]="isActiveSection('experience', 'about')">Experience</li>
-                <li (click)="selectSection({section: 'awards', parentSection: 'about'})" [class.active]="isActiveSection('awards', 'about')">Awards</li>
-            </ul>
-        </li>
-        <li>
-            <span class="toggle-icon" (click)="toggleDropdown('contact')">{{ getToggleIcon('contact') }} Contact</span>
-            <ul *ngIf="openedParentSections.includes('contact')" class="dropdown">
-                <li (click)="selectSection({ section: 'instagram', parentSection: 'contact' })" (click)="toggleEditor()"[class.active]="isActiveSection('instagram', 'contact')">Instagram</li>
-                <li (click)="selectSection({section: 'telegram', parentSection: 'contact'})" (click)="toggleEditor()" [class.active]="isActiveSection('telegram', 'contact')">Telegram</li>
-                <li (click)="selectSection({section: 'whatsapp', parentSection: 'contact'})" (click)="toggleEditor()" [class.active]="isActiveSection('whatsapp', 'contact')">Whatsapp</li>
-                <li (click)="selectSection({section: 'facebook', parentSection: 'contact'})" (click)="toggleEditor()" [class.active]="isActiveSection('facebook', 'contact')">Facebook</li>
-                <li (click)="selectSection({section: 'text', parentSection: 'contact'})" [class.active]="isActiveSection('text', 'contact')">Text</li>
-            </ul>
-        </li>
-    </ul>
-  </div>
-
-  <div class="main-space" *ngIf="activeChildSection">
-        <div class="content-edit-header">
-          <div  class="content-edit">
-              <h3 class="current-content-title" *ngIf="!isEditorActive">Current Content</h3>
-              <h3 class="current-content-title" *ngIf="isEditorActive">Content Editor</h3>
-              <button class="edit-btn" *ngIf="!isEditorActive" (click)="toggleEditor()">Edit Content</button>
-              <button class="back-btn" *ngIf="!isEditorActive && !['add-work', 'telegram', 'instagram', 'facebook', 'whatsapp'].includes(activeChildSection.section)" (click)="toggleEditor()">Back to View</button>
-          </div>
-        </div>
-        <div class="current-section" *ngIf="!isEditorActive && !['add-work', 'telegram', 'instagram', 'facebook', 'whatsapp'].includes(activeChildSection.section)"
-        >
-            <div class="inner-div">
-               <div class="current-content-holder">
-                 <app-fullname *ngIf="activeChildSection.section == 'fullname' && activeChildSection.parentSection == 'introduction'" [fullname]="introduction.name"/>
-                 <app-greeting *ngIf="activeChildSection.section == 'greeting' && activeChildSection.parentSection == 'introduction'" [greeting]="safeGreetingText"/>
-                 <app-profile-pic *ngIf="activeChildSection.section == 'photo' && activeChildSection.parentSection == 'introduction'" [image]="introduction.photo"/>
-                 <app-resume *ngIf="activeChildSection.section == 'cv' && activeChildSection.parentSection == 'introduction'"/>
-                 <ng-container *ngIf="activeChildSection.parentSection === 'selectedWorks' && activeChildSection.section != 'add-work'">
-                  <app-selected-work [work]="displayedWork" [delete]="true" class="selected-work"></app-selected-work>
-                 </ng-container>
-                 <app-about-text *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'text'" [aboutText]="safeAboutText"/>
-                 <app-skills *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'skills'"/>
-                 <app-experience *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'experience'"/>
-                 <app-awards-certificates *ngIf="activeChildSection.parentSection === 'about' && activeChildSection.section == 'awards'" />
-                 <app-contact-text *ngIf="activeChildSection.parentSection === 'contact' && activeChildSection.section == 'text'" [contactText]="safeContactText"/>
-               </div>
-            </div>
-         </div>
-         <div class="edit-section" *ngIf="isEditorActive">
-           <div class="inner-div">
-               <div class="current-content-editor">
-                 <app-edit-fullname *ngIf="activeChildSection.section == 'fullname' && activeChildSection.parentSection == 'introduction'"/>
-                 <app-edit-greeting *ngIf="activeChildSection.section == 'greeting' && activeChildSection.parentSection == 'introduction'"/>
-                 <edit-app-profile-pic *ngIf="activeChildSection.section == 'photo' && activeChildSection.parentSection == 'introduction'"/>
-                 <app-edit-resume *ngIf="activeChildSection.section == 'cv' && activeChildSection.parentSection == 'introduction'"/>
-                 <ng-container *ngIf="activeChildSection.parentSection === 'selectedWorks'">
-                  <app-edit-work  *ngIf="activeChildSection.section === 'add-work'" (workAdded)="onWorkAdded($event)" task="Add New" [update]="false"/>
-                  <app-edit-work  *ngIf="activeChildSection.section != 'add-work'" [work]="displayedWork" task="Update" [update]="true"/>
-                </ng-container>
-                <app-about-text-edit *ngIf="activeChildSection.section == 'text' && activeChildSection.parentSection == 'about'"/>
-                <app-experience-list *ngIf="activeChildSection.section == 'experience' && activeChildSection.parentSection == 'about'"/>
-                <app-awards-list *ngIf="activeChildSection.section == 'awards' && activeChildSection.parentSection == 'about'"/>
-                <app-skills-list  *ngIf="activeChildSection.section == 'skills' && activeChildSection.parentSection == 'about'"/>
-                <app-edit-contact-text *ngIf="activeChildSection.section == 'text' && activeChildSection.parentSection == 'contact'"/>
-                <app-edit-social-media *ngIf="!['add-work', 'telegram', 'instagram', 'facebook', 'whatsapp'].includes(activeChildSection.section) && activeChildSection.parentSection == 'contact'"/>
-               </div>
-           </div>
-         </div>
-    </div> 
-</div>  -->
 
 

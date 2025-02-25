@@ -7,5 +7,5 @@ import { SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./greeting.component.css']
 })
 export class GreetingComponent {
-  @Input() greeting!: SafeHtml;
+  @Input() greeting: SafeHtml = '<p style="color: white;font-family: sans-serif;">Your default greeting text. Introduce your clients yourself. Tell shortly about yourself.</p>';
 }

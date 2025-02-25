@@ -14,8 +14,10 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 export class ContactComponent {
   contactForm!: FormGroup;
   submitted: boolean = false;
-  contact!: Contact;
+  contact?: Contact;
   safeContactText!: SafeHtml;
+
+  @ViewChild('submitButton') submitButton!: ElementRef;
 
   constructor(private fb: FormBuilder, private cdr: ChangeDetectorRef, private requestsService: RequestsService, private sanitizer: DomSanitizer) {}
 
@@ -25,18 +27,14 @@ export class ContactComponent {
       message: ['', Validators.required]
     });
 
-    this.requestsService.contact$.subscribe(contact => {
-      if(contact){
-        this.contact = contact;
-        this.safeContactText = this.sanitizer.bypassSecurityTrustHtml(
-          contact.contactText 
-            ? contact.contactText 
-            : '<p style="color: white;font-family: sans-serif;">Your default contact text. Ask you clients how to contact you.</p>'
-        );
+    // ✅ Directly fetch data and update UI
+    this.requestsService.getContact().subscribe(contact => {
+      if (contact) {
+        this.updateContactData(contact); // ✅ Updates UI instantly
+      } else {
+        console.warn("⚠️ No contact data received.");
       }
     });
-    this.requestsService.getContact().subscribe();
-
   }
 
   get email() {
@@ -55,8 +53,6 @@ export class ContactComponent {
       message: this.contactForm.value.message,
       });
   }
-
-  @ViewChild('submitButton') submitButton!: ElementRef;
 
 
   onSubmit(): void {
@@ -79,6 +75,13 @@ export class ContactComponent {
       this.send();  // Call your send function
       this.contactForm.reset();  // Reset the form
     }, 800);  // Match the duration of the animation (1200ms)
+  }
+  
+  private updateContactData(contact: Contact): void {
+    this.contact = contact;
+    this.safeContactText = this.sanitizer.bypassSecurityTrustHtml(
+      contact.contactText || '<p style="color: white;font-family: sans-serif;">Your default contact text.</p>'
+    );
   }
   
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Work } from '../work.model';
 import { Router } from '@angular/router';
 import { RequestsService } from 'src/app/services/requests.service';
@@ -14,6 +14,8 @@ export class SelectedWorkComponent {
 
   @Input() delete: boolean = false;
 
+  @Output() deleteWorkOutput = new EventEmitter<Work[]>();
+
   constructor(private router: Router, private requestsService: RequestsService) {}
 
   navigateToWork(work: Work): void {
@@ -22,13 +24,9 @@ export class SelectedWorkComponent {
 
   deleteWork(id?: number) {
     if (id === undefined) return;
-  
-    const confirmDelete = window.confirm("Are you sure you want to delete this work?");
-    if (!confirmDelete) return; // Cancel deletion if user clicks "Cancel"
-  
     this.requestsService.deleteWork(id).subscribe({
       next: () => {
-        console.log(`Work with ID ${id} deleted successfully.`);
+        this.deleteWorkOutput.emit();
       },
       error: (err) => {
         console.error("Error deleting work:", err);

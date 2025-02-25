@@ -65,7 +65,6 @@ export class EditGreetingComponent {
     this.requestsService.updateUserProfile(formData).subscribe(
       response => {
         alert('Profile updated successfully!');
-        console.log('Profile updated:', response);
       },
       error => {
         console.error('❌ Error updating profile:', error);
@@ -79,7 +78,6 @@ export class EditGreetingComponent {
       if (profile) {
         this.introduction = profile;
         this.greetingContent = profile.greetingText;
-        console.log("🟢 UI updated in component:", this.introduction);
         this.cdr.detectChanges();
       }
     });

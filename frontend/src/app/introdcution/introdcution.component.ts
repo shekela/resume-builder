@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { RequestsService } from '../services/requests.service';
 import { Introduction } from './introduction.model';
 import { PhotoUrlFormatterService } from '../services/photo-url-formatter.service';
-import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
@@ -22,38 +21,15 @@ export class IntrodcutionComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.requestsService.profile$.subscribe(profile => {
-      console.log('🔄 Received updated profile in IntroductionComponent:', profile);
-  
+    this.requestsService.getUserProfile().subscribe(profile => {
       if (profile) {
-        const updatedProfile = { 
-          ...profile, 
-          name: profile.name ? profile.name : 'Fullname',
-          photo: profile.photo 
-            ? this.photoURLFormatter.formatPhotoUrl(profile.photo) // ✅ Format if photo exists
-            : 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png', // ✅ Use default if missing
-        };
-  
-        this.introduction = updatedProfile;
-  
-        // ✅ Set sanitized greeting text or default if missing
-        this.safeGreetingText = this.sanitizer.bypassSecurityTrustHtml(
-          profile.greetingText 
-            ? profile.greetingText 
-            : '<p style="color: white;font-family: sans-serif;">Your default greeting text. Introduce your clients yourself. Tell shortly about yourself.</p>'
-        );
-  
-        // 🔹 Manually trigger change detection to force UI update
-        this.cdr.detectChanges();
-      } 
-      else {
-        console.warn("⚠️ Profile data is missing:", profile);
+        this.updateProfileData(profile);
+      } else {
+        console.warn("⚠️ No profile data received.");
       }
     });
-  
-    // Fetch profile once on component initialization
-    this.requestsService.getUserProfile().subscribe();
   }
+  
   
   
   
@@ -85,4 +61,23 @@ export class IntrodcutionComponent implements OnInit{
       }
     );
   }
+
+
+  private updateProfileData(profile: Introduction): void {
+    const updatedProfile = { 
+      ...profile, 
+      name: profile.name ? profile.name : 'Fullname',
+      photo: profile.photo 
+        ? this.photoURLFormatter.formatPhotoUrl(profile.photo)
+        : 'https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_640.png',
+    };
+  
+    this.introduction = updatedProfile;
+    this.safeGreetingText = this.sanitizer.bypassSecurityTrustHtml(
+      profile.greetingText || '<p style="color: white;font-family: sans-serif;">Your default greeting text.</p>'
+    );
+  
+    this.cdr.detectChanges(); // ✅ Forces UI update immediately
+  }
+  
 }

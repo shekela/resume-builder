@@ -28,18 +28,13 @@ export class EditResumeComponent {
         const fileType = this.selectedFile.type;
         const fileURL = URL.createObjectURL(this.selectedFile); // ✅ Generate preview URL
   
-        console.log("Selected File Type:", fileType);
-        console.log("Generated Preview URL:", fileURL);
-  
         if (fileType === 'application/pdf') {
-          // ✅ PDF Files: Use blob URL inside iframe
           this.filePreviewView = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
         } 
         else if (
           fileType === 'application/msword' || 
           fileType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
         ) {
-          // ✅ DOCX Files: Convert to Google Docs Viewer
           const googleDocsURL = `https://docs.google.com/gview?url=${encodeURIComponent(fileURL)}&embedded=true`;
           this.filePreviewView = this.sanitizer.bypassSecurityTrustResourceUrl(googleDocsURL);
         } 
@@ -63,7 +58,6 @@ export class EditResumeComponent {
   
       this.requestsService.updateUserProfile(formData).subscribe({
         next: (response) => {
-          console.log('Profile updated successfully:', response);
           this.uploadSuccess = true;
           alert('Profile updated successfully!');
         },

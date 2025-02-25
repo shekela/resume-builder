@@ -24,10 +24,9 @@ export class AdminLoginComponent {
       const credentials = this.loginForm.value;
       this.authService.loginAdmin(credentials).subscribe({
         next: (response) => {
-          console.log('Login successful:', response);
-          localStorage.setItem('token', response.token); // Save the token
-          localStorage.setItem('admin', JSON.stringify({ email: response.email })); // Optional: Save admin details
-          this.router.navigate(['/admin/dashboard']); // Navigate to the admin panel
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('admin', JSON.stringify({ email: response.email }));
+          this.router.navigate(['/admin/dashboard']); 
         },
         error: (err) => {
           console.error('Login failed:', err.error);

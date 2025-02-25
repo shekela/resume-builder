@@ -30,12 +30,10 @@ export class FullnameComponent {
     
       this.requestsService.updateUserProfile(formData).subscribe(
         response => {
-          console.log('Profile updated successfully:', response);
           this.inputValue = ''; // Clear input field
         },
         error => {
           console.error('Error updating profile:', error);
-          // Log server validation errors if present
           if (error.error?.errors) {
             console.error('Validation errors:', error.error.errors);
           }
@@ -45,12 +43,10 @@ export class FullnameComponent {
     
   
     ngOnInit(): void {
-      // Subscribe to profile$ to get the latest profile data
       this.requestsService.profile$.subscribe(profile => {
         this.introduction = profile!;
       });
   
-      // Fetch the profile initially
       this.requestsService.getUserProfile().subscribe();
     }
 }

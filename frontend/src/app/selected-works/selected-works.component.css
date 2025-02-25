@@ -11,10 +11,10 @@ h2{
 }
 .display-works {
     display: flex;          /* Enable Flexbox */
-    flex-wrap: wrap;        /* Allow items to wrap to next line */
+    flex-wrap: wrap;
+    flex-direction: row;        /* Allow items to wrap to next line */
     gap: 30px;              /* Space between items */
     width: 100%;            /* Ensure container takes full width */
-    justify-content: space-between; /* Distribute the items evenly */
 }
 
 .selected-work {

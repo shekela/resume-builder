@@ -38,11 +38,15 @@ export class RequestsService {
   getUserProfile(): Observable<Introduction> {
     return this.http.get<Introduction>(`${this.apiUrl}/Profile/get-profile`).pipe(
       tap(profile => {
-        console.log('Fetched profile:', profile); // Debug log
-        this.profileSubject.next(profile); // Update BehaviorSubject
+        if (profile) {
+          this.profileSubject.next(profile); // ✅ Ensure BehaviorSubject gets updated
+        } else {
+          console.warn("⚠️ Received empty profile from API.");
+        }
       })
     );
-  }
+}
+
 
   // UPDATE OR CREATE PROFILE and notify subscribers
   updateUserProfile(formData: FormData): Observable<Introduction> {
@@ -52,7 +56,6 @@ export class RequestsService {
       }
     }).pipe(
       tap(updatedProfile => {
-        console.log('Updated profile:', updatedProfile);
         this.profileSubject.next(updatedProfile);
       })
     );
@@ -78,9 +81,16 @@ export class RequestsService {
   //---------------------------------------------------------------Works of user---------------------------------------------------------------
   getAllWorks(): Observable<Work[]> {
     return this.http.get<Work[]>(`${this.apiUrl}/Works/get-all-works`).pipe(
-      tap(works => this.worksSubject.next(works)) // Update BehaviorSubject
+      tap(works => {
+        if (works && works.length > 0) {
+          this.worksSubject.next(works); // ✅ Only update BehaviorSubject when works are available
+        } else {
+          console.warn("⚠️ API returned an empty works list.");
+        }
+      })
     );
   }
+
 
   getWorkBySlug(slug: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/Works/get-work/${slug}`);
@@ -89,7 +99,6 @@ export class RequestsService {
   addWork(work: any): Observable<Work[]> {
     return this.http.post<Work[]>(`${this.apiUrl}/Works/add-work`, work).pipe(
       tap(updatedWorks => {
-        console.log("✅ Backend response after adding work:", updatedWorks);
         if (updatedWorks && updatedWorks.length > 0) {
           this.worksSubject.next(updatedWorks); // ✅ Update UI immediately
         } else {
@@ -109,11 +118,10 @@ export class RequestsService {
   deleteWork(id: number): Observable<Work[]> {
     return this.http.delete<Work[]>(`${this.apiUrl}/Works/delete-work/${id}`).pipe(
       tap(updatedWorks => {
-        console.log("Backend response after deletion:", updatedWorks); // ✅ Debugging log
         if (updatedWorks && updatedWorks.length >= 0) {
-          this.worksSubject.next(updatedWorks); // ✅ Only update if valid
+          this.worksSubject.next(updatedWorks); // ✅ Update BehaviorSubject immediately
         } else {
-          console.error("Error: Backend returned empty works list.");
+          console.error("❌ Error: Backend returned empty works list.");
         }
       })
     );
@@ -122,7 +130,6 @@ export class RequestsService {
   deleteWorkPhoto(worId: number, pictureId: number):Observable<Work[]>{
     return this.http.delete<Work[]>(`${this.apiUrl}/Works/delete-work-photo/${worId}/${pictureId}`).pipe(
       tap(updatedWorks => {
-        console.log("Backend response after deletion:", updatedWorks); // ✅ Debugging log
         if (updatedWorks && updatedWorks.length >= 0) {
           this.worksSubject.next(updatedWorks); // ✅ Only update if valid
         } else {

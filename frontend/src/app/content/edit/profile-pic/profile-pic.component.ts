@@ -46,7 +46,6 @@ export class ProfilePicComponent {
 
     this.requestsService.updateUserProfile(formData).subscribe({
       next: (response) => {
-        console.log('Profile updated successfully:', response);
         this.uploadSuccess = true;
         alert('Profile updated successfully!');
       },

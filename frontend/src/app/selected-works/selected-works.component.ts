@@ -30,23 +30,26 @@ export class SelectedWorksComponent {
     ); 
   }
 
-  ngOnInit(): void {
-    this.requestsService.works$.subscribe(works => {
-      if (works && works.length > 0) { 
-        console.log("✅ Works received and UI updating:", works);
-        this.works = works;
-        this.totalworks = works.length;
-  
-        // ✅ Only reset `displayedWorks` if it's empty, to avoid flickering
-        this.displayedWorks = this.displayedWorks.filter(work => works.some(w => w.id === work.id));
 
-        this.loadMore()
+  ngOnInit(): void {
+    // ✅ Directly fetch works and update UI immediately
+    this.requestsService.getAllWorks().subscribe(works => {
+      if (works && works.length > 0) { 
+        this.updateWorks(works); // ✅ Update UI instantly
       } else {
-        console.warn("⚠️ Works list is empty after update.");
+        console.warn("⚠️ Works list is empty.");
       }
     });
-  
-    // ✅ Fetch works initially
-    this.requestsService.getAllWorks().subscribe();
+
+    
   }
+
+
+  private updateWorks(works: Work[]): void {
+    this.works = works;
+    this.totalworks = works.length;
+    this.displayedWorks = this.displayedWorks.filter(work => works.some(w => w.id === work.id));
+    this.loadMore(); // ✅ Load additional works if needed
+  }
+
 }

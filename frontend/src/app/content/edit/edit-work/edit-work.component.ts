@@ -39,9 +39,6 @@ export class EditWorkComponent {
           ...item,
           picture: `${PhotoUrlFormatter.formatPhotoURL(item.picture)}` 
         }));; 
-        console.log("✅ Gallery initialized:", this.Gallery); // Debugging log
-
-        // ✅ Only initialize gallery after data is available
         this.initializeGallery();
       });
     } else {
@@ -129,8 +126,6 @@ export class EditWorkComponent {
       this.loadedCount = this.displayedPictures.length;
       this.progressPercentage = Math.ceil((this.loadedCount / this.totalPictures) * 100);
     }
-  
-    console.log("✅ Loaded more pictures:", this.displayedPictures);
   }
   
   selectedFile: File | null = null;

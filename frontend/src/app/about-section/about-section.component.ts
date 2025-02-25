@@ -12,15 +12,23 @@ export class AboutSectionComponent {
   aboutText!: SafeHtml;
 
   constructor(private requestsService: RequestsService, private sanitizer: DomSanitizer){}
-  ngOnInit(){
-    this.requestsService.aboutText$.subscribe(content => {
-      this.aboutText = this.sanitizer.bypassSecurityTrustHtml(
-        content.content 
-          ? content.content 
-          : '<p style="color: white;font-family: sans-serif;">Your default About text. Explain your motive and aim. Tell shortly about yourself.</p>'
-      );
-    });
 
-    this.requestsService.getAbout().subscribe();
+  ngOnInit(): void {
+    this.requestsService.getAbout().subscribe(content => {
+      if (content) {
+        this.updateAboutText(content); // ✅ Update UI immediately
+      } else {
+        console.warn("⚠️ No about text received.");
+      }
+    });
   }
+  
+  private updateAboutText(content: any): void {
+    this.aboutText = this.sanitizer.bypassSecurityTrustHtml(
+      content?.content || 
+      '<p style="color: white;font-family: sans-serif;">Your default About text. Explain your motive and aim. Tell shortly about yourself.</p>'
+    );
+  }
+  
+  
 }
